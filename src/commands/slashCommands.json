@@ -1,0 +1,27 @@
+{
+  "data": [
+    {
+      "name": "nuke",
+      "description": "Delete message(s)",
+      "options": [
+        {
+          "name": "amount",
+          "description": "Specify amount to delete",
+          "type": 3,
+          "required": true,
+          "choices": [
+            {
+              "name": "all",
+              "value": "delete_all"
+            },
+            {
+              "name": "last",
+              "value": "delete_last"
+            }
+          ]
+        }
+      ]
+    },
+    { "name": "peek", "description": "Peek messages" }
+  ]
+}
