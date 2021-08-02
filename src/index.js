@@ -28,6 +28,7 @@ client.once("ready", () => {
         case "delete_all":
           {
             try {
+              peekMessages = [];
               channel.messages
                 .fetch({ limit: 10 })
                 .then(
@@ -37,9 +38,13 @@ client.once("ready", () => {
                       if (
                         !usernames_to_ignore.includes(message.author.username)
                       )
-                        peekMessages.push(
-                          `${message.author.username}: ${message.content}`
-                        );
+                        try {
+                          peekMessages.push(
+                            `\`\`\`${message.author.username}: ${message.content}\`\`\``
+                          );
+                        } catch (e) {
+                          throw new Error(e);
+                        }
                     });
                   },
                   () => console.log("Couldn't save the messages.")
